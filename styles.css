@@ -1,0 +1,745 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(135deg, #e0eafc, #cfdef3);
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Main Header */
+#main-header {
+    background-image: url('images/winter.jpg'); 
+    background-size: cover; /* Ensure the image covers the entire header */
+    background-position: center; /* Center the image */
+    color: #fff;
+    padding: 4rem 1rem; /* Adjust padding for better spacing */
+    text-align: center;
+    position: relative; /* To position the background overlay */
+    height: 100vh; /* Ensure header covers the full height of the viewport */
+}
+
+/* Overlay for both light and dark themes */
+#main-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; /* Ensure the overlay spans the entire header */
+    height: 100%; /* Make sure the overlay covers the entire header */
+    z-index: -1; /* Place the overlay behind the text */
+    transition: background 0.3s ease; /* Smooth transition for overlay */
+}
+
+/* Light Mode Overlay */
+body.light-mode #main-header::before {
+    background: rgba(255, 255, 255, 0.6); /* Lighter overlay for light theme */
+}
+
+/* Dark Mode Overlay */
+body.dark-mode #main-header::before {
+    background: rgba(0, 0, 0, 0.6); /* Darker overlay for dark theme */
+}
+
+/* Text Styling for Main Header */
+#main-header h1, #main-header p, #countdown {
+    z-index: 1;
+    position: relative; /* Ensure text is on top of the overlay */
+    padding: 1rem 2rem;
+    border-radius: 10px; /* Round corners for a soft look */
+    font-weight: bold;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 13rem;
+    text-align: center;
+    color: #d4af37; /* Golden hue for elegance */
+    text-shadow: 2px 2px 4px #000000; /* Subtle shadow for depth */
+    letter-spacing: 2px;
+    display: inline-block;
+    padding-bottom: 10px;
+}
+
+/* Main Header Title */
+#main-header h1 {
+    font-size: 3rem; /* Adjusted font size for better balance */
+    color: #ffffff; /* Golden color for the header */
+    margin-top: 500px;
+    text-transform: uppercase;
+    background-color: rgba(4, 23, 59, 0.5);
+    padding: 0%;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Main Header Subtitle or Description */
+#main-header p {
+    font-size: 1.1rem; /* Adjusted font size */
+    color: #fff;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Countdown Text */
+#countdown {
+    font-size: 1.8rem; /* Adjust countdown font size */
+    color: #ff8c00;
+    font-weight: bold;
+    text-align: center;
+    background-color: rgba(20, 49, 104, 0.5);
+}
+
+/* Countdown Box */
+#countdown-container {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Navigation */
+nav {
+    padding: 1rem 0; /* Adjust padding for spacing */
+    margin-top: -620px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    padding: 1rem 2rem;
+    background-color: rgba(20, 49, 104, 0.5); /* 50% opacity */
+}
+
+nav ul li a {
+    text-decoration: none;
+    font-size: 1.2rem;
+    color: #fff; /* White text to contrast with the background */
+    transition: color 0.3s ease;
+    font-weight: 100;
+    padding: 1rem;
+    border-radius: 12px;
+}
+
+nav ul li a:hover {
+    color: #ff9800; /* Change color on hover */
+}
+
+/* Sections */
+section {
+    margin: 3rem auto;
+    padding: 2rem;
+    width: 90%;
+    max-width: 1400px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(60, 157, 241, 0.2);
+    transition: transform 0.3s ease;
+}
+
+section:hover {
+    transform: translateY(-5px);
+}
+
+section h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: #2c87d7;
+    display: inline-block;
+}
+
+/* Footer */
+footer {
+    background: #000428;
+    color: #fff;
+    text-align: center;
+    padding: 1rem 0;
+    margin-top: 0; /* Remove extra spacing */
+}
+
+footer a {
+    color: #ff9800;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Back to Top */
+#back-to-top {
+    background: #003366;
+    color: white;
+    text-align: center;
+    cursor: pointer;
+    padding: 1rem;
+    margin: 0; /* Remove margin */
+}
+
+/* Theme Switcher */
+#theme-switcher {
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    padding: 0.7rem 2rem;
+    background: linear-gradient(135deg, #ff9800, #ff5722);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+#theme-switcher:hover {
+    background: linear-gradient(135deg, #ff5722, #ff9800);
+    transform: scale(1.05);
+}
+
+/* Snowfall Effect */
+.snowflake {
+    position: fixed;
+    top: -10px;
+    z-index: 9999;
+    pointer-events: none;
+    user-select: none;
+    font-size: 1.5rem;
+    color: #fff;
+    animation: snowfall 10s linear infinite;
+}
+
+@keyframes snowfall {
+    0% {
+        transform: translateX(0) translateY(0);
+    }
+    100% {
+        transform: translateX(50px) translateY(100vh);
+    }
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+    background: linear-gradient(135deg, #121212, #333333);
+    color: #f4f4f4;
+}
+
+body.dark-mode #main-header {
+    background-image: url('images/winter.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+body.dark-mode section {
+    background: rgba(0, 0, 0, 0);
+    color: #f4f4f4;
+}
+
+body.dark-mode footer {
+    background: #1b1b1b;
+}
+
+body.dark-mode nav ul li a {
+    color: #f4f4f4;
+}
+
+body.dark-mode nav ul li a:hover {
+    color: #ff9800;
+}
+
+body.dark-mode .snowflake {
+    color: #b0e0e6;
+}
+
+body.dark-mode #hemispheres {
+    background: rgba(0, 0, 0, 0);
+    color: #f4f4f4;
+}
+
+body.dark-mode #northern-hemisphere {
+    background: rgba(0, 0, 0, 0);
+    color: #ffffff;
+}
+
+body.dark-mode #southern-hemisphere {
+    background: rgba(0, 0, 0, 0);
+    color: #ffffff;
+}
+body.dark-mode #hemispheres article {
+    box-shadow: 0 10px 20px rgba(60, 157, 241, 0.2);
+    color: white;
+}
+
+body.dark-mode .hemisphere p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #fff9f9;
+}
+
+body.dark-mode #celebrations{
+    background: rgba(0, 0, 0, 0);
+}
+
+body.dark-mode #celebrations article {
+    box-shadow: 0 10px 20px rgba(60, 157, 241, 0.2);
+    color: white;
+}
+
+body.dark-mode .celebration p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #fff9f9;
+}
+
+body.dark-mode #newgrange{
+    background: rgba(0, 0, 0, 0);
+}
+
+body.dark-mode #stonehenge{
+    background: rgba(0, 0, 0, 0);
+}
+
+body.dark-mode #chichenitza{
+    background: rgba(0, 0, 0, 0);
+}
+
+body.dark-mode #japan{
+    background: rgba(0, 0, 0, 0);
+}
+
+body.dark-mode #traditions{
+    background: rgba(0, 0, 0, 0);
+    box-shadow: 0 10px 20px rgba(60, 157, 241, 0.2);
+    color: white;
+}
+
+body.dark-mode #traditions li {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: #ffffff;
+    margin-bottom: 1.2rem;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+body.dark-mode #conclusion{
+    background: rgba(0, 0, 0, 0);
+    box-shadow: 0 10px 20px rgba(60, 157, 241, 0.2);
+    color: white;
+}
+body.dark-mode #conclusion p{
+    color: white;
+}
+/* Light Mode Styles */
+body.light-mode {
+    background: linear-gradient(135deg, #f0f4f7, #ffffff);
+    color: #333;
+}
+
+body.light-mode #main-header {
+    background-image: url('images/winter.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+body.light-mode section {
+    background: rgba(255, 255, 255, 0.9);
+    color: #333;
+}
+
+body.light-mode footer {
+    background: #003366;
+}
+
+body.light-mode nav ul li a {
+    color: #004e92;
+}
+
+body.light-mode nav ul li a:hover {
+    color: #ff9800;
+}
+
+body.light-mode .snowflake {
+    color: #b0e0e6;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2rem;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    section {
+        padding: 1.5rem;
+    }
+
+    #theme-switcher {
+        bottom: 0.5rem;
+        right: 0.5rem;
+    }
+
+    #countdown-container {
+        top: 1rem;
+        right: 1rem;
+        padding: 0.5rem;
+    }
+
+    #countdown {
+        font-size: 1.5rem;
+    }
+}
+
+#science{
+    height: 600px;
+    max-width: 570px;
+}
+
+#science-div{
+    padding: 2%;
+    display: flex;
+    gap: 30px;
+}
+#science1 img{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 550px;
+    width: 850px;
+    
+}
+#science1{
+    background-color: #02203e;
+    border-radius: 2%;
+}
+#img{
+    width: 1600px;
+}
+
+/* Styling for the celebrations section */
+#celebrations {
+    padding: 3rem 2rem;
+    max-width: 1200px;
+    margin: 10 auto;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+#celebrations h2 {
+    font-size: 2.5rem;
+    color: #2c87d7;
+    margin-bottom: 2rem;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.celebration {
+    margin-bottom: 2rem;
+}
+
+.celebration h3 {
+    font-size: 2rem;
+    color:  #2c87d7;
+    margin-bottom: 1rem;
+    font-family: 'Poppins', sans-serif;
+    text-transform: capitalize;
+}
+
+.celebration p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #333;
+}
+
+.celebration span {
+    font-weight: bold;
+}
+
+/* Styling for specific highlighted spans in text */
+.celebration span[style*="color: #ff8c00"] {
+    color: #ff8c00;
+}
+
+#celebrations article {
+    background: rgba(240, 240, 240, 0.8);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+#celebrations article:hover {
+    transform: translateY(-5px);
+}
+/* Additional styling for the hemisphere section */
+#hemispheres {
+    padding: 3rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+#hemispheres h2 {
+    font-size: 2.5rem;
+    color: #2c87d7;
+    margin-bottom: 2rem;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.hemisphere {
+    margin-bottom: 2rem;
+}
+
+.hemisphere h3 {
+    font-size: 2rem;
+    color: #2c87d7;
+    margin-bottom: 1rem;
+    font-family: 'Poppins', sans-serif;
+    text-transform: capitalize;
+}
+
+.hemisphere p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #000000;
+}
+
+.hemisphere span {
+    font-weight: bold;
+
+}
+
+/* Styling for specific highlighted spans in text */
+.hemisphere span[style*="font-size: 1.2rem"] {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #d4af37;
+}
+
+
+.hemisphere span[style*="color: #ff8c00"] {
+    color: #ff8c00;
+} 
+
+#hemispheres article {
+    background: rgba(240, 240, 240, 0.8);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+#hemispheres article:hover {
+    transform: translateY(-5px);
+}
+/* Styling for the traditions section */
+#traditions {
+    padding: 2.5rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+#traditions h2 {
+    font-size: 2.5rem;
+    color: #d4af37;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: 'Poppins', sans-serif;
+}
+
+#traditions ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+#traditions li {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: #333;
+    margin-bottom: 1.2rem;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+#traditions li::before {
+    content: "✔";
+    font-size: 1.5rem;
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #ff8c00;
+}
+
+#traditions li strong {
+    font-weight: bold;
+    color: #2c87d7;
+}
+/* Styling for the conclusion section */
+#conclusion {
+    padding: 2.5rem 2rem;
+    max-width: 1200px;
+    margin: 10 auto;
+    background-color: #f0f8ff;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+#conclusion h2 {
+    font-size: 2.5rem;
+    color: #d4af37;
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    font-family: 'Poppins', sans-serif;
+}
+
+#conclusion p {
+    font-size: 1.2rem;
+    color: #333;
+    line-height: 1.8;
+    margin-bottom: 1rem;
+    text-align: justify;
+}
+
+#ireland-div {
+    display: flex;
+    gap: 20px;
+}
+
+#uk-div{
+    display: flex;
+    gap: 20px;
+}
+
+#mexico-div{
+    display: flex;
+    gap: 20px;
+}
+
+#japan-div{
+    display: flex;
+    gap: 20px;
+}
+
+
+button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    background: #fbc811;
+    color: rgb(0, 0, 0);
+    border: none;
+    border-radius: 5px;
+  }
+  
+  button:hover {
+    background: #ffc800;
+  }
+  
+  /* Modal Styles */
+  .modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 10;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+  
+  /* Slideshow Styles */
+  .slideshow-container {
+    position: relative;
+    width: 80%;
+    margin: 50px auto;
+    max-height: 500px;
+  }
+  
+  .slide {
+    display: none;
+  }
+  
+  .slide img {
+    width: 100%;
+    border-radius: 10px;
+  }
+  
+  /* Navigation Buttons */
+  .prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 10px;
+    margin-top: -22px;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    transition: 0.3s;
+    user-select: none;
+  }
+  
+  .prev {
+    left: 10px;
+  }
+  
+  .next {
+    right: 10px;
+  }
+  
+  .prev:hover, .next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 50%;
+  }
+  
+  /* Close Button */
+  .close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .close:hover {
+    color: #ccc;
+  }
+  
+  /* Fading Animation */
+  .fade {
+    animation: fadeEffect 1.5s;
+  }
+  
+  @keyframes fadeEffect {
+    from {
+      opacity: 0.4;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
